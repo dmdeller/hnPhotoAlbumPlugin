@@ -1,0 +1,52 @@
+#hnPhotoAlbumPlugin table.albums
+{
+  margin: 1em auto;
+}
+#hnPhotoAlbumPlugin table.albums td
+{
+  text-align: center;
+  padding: 1em;
+}
+
+#hnPhotoAlbumPlugin table.photos
+{
+  margin: 1em auto;
+}
+#hnPhotoAlbumPlugin table.photos td
+{
+  text-align: center;
+  vertical-align: bottom;
+  padding: 1em;
+}
+
+#hnPhotoAlbumPlugin div.previous
+{
+  float: left;
+}
+
+#hnPhotoAlbumPlugin div.next
+{
+  float: right;
+}
+
+#hnPhotoAlbumPlugin #photo
+{
+  clear: both;
+  text-align: center;
+}
+
+#hnPhotoAlbumPlugin #from_album
+{
+
+}
+
+#hnPhotoAlbumPlugin p#description
+{
+  clear: both;
+  margin-top: 3em;
+}
+
+#hnPhotoAlbumPlugin p#download
+{
+  text-align: right;
+}

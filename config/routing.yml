@@ -1,0 +1,23 @@
+photos_index:
+  url: /photos
+  param: { module: photos, action: index }
+  
+photos_index_ts:
+  url: /photos/
+  param: { module: photos, action: index }
+  
+photos_download:
+  url: /photos/download/:album_name/:photo_id
+  param: { module: photos, action: download }
+  
+photos_photo:
+  url: /photos/:album_name/:photo_id
+  param: { module: photos, action: photo }
+  
+photos_album:
+  url: /photos/:album_name
+  param: { module: photos, action: album }
+  
+photos:
+  url: /photos/:action/*
+  param: { module: photos }

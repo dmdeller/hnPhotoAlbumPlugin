@@ -1,0 +1,35 @@
+hnPhotoAlbumPlugin
+Copyright (c) 2009 D. M. Deller
+
+
+Configuration
+-------------
+
+0.  Install the plugin and run 'symfony plugin:publish-assets' so your site can find the stylesheets, etc.
+    Make sure the sfProtoculousPlugin is enabled if you want AJAXy goodness (of course you do!)
+
+
+1.  Enable the 'photos' module in your app's settings.yml:
+
+all:
+  .settings:
+    enabled_modules:        [photos]
+
+
+2.  Configure some settings in your app's app.yml:
+
+all:
+  hnPhotoAlbumPlugin:
+    picasa_username:    tester        # change this to your username. 'tester' has a bunch of sample photos.
+    
+                                      # for valid thumb values, see http://code.google.com/apis/picasaweb/reference.html#Parameters
+    album_thumb_size:   160c          # size (width) for album thumbnails. default is 160px, cropped.
+    photo_thumb_size:   160u          # size (width) for photo thumbnails. default is 160px, uncropped.
+    
+    photo_display_size: 800           # maximum size (width) for photos. default is 800px. note, no 'u' or 'c' is needed/allowed here.
+
+
+3.  Optionally style the output. All of the plugin's HTML is wrapped in a div with the ID 'hnPhotoAlbumPlugin', so you can use that to limit CSS rules to this particular plugin.
+
+
+4.  <?php echo link_to('photos/index'); ?> somewhere on your site so visitors can find it! :)
