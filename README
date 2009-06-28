@@ -1,6 +1,20 @@
 hnPhotoAlbumPlugin
 Copyright (c) 2009 D. M. Deller
 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program (in the file LICENSE).  If not, see
+<http://www.gnu.org/licenses/>.
+
 
 Configuration
 -------------
@@ -33,3 +47,17 @@ all:
 
 
 4.  <?php echo link_to('photos/index'); ?> somewhere on your site so visitors can find it! :)
+
+
+Overriding stuff
+----------------
+
+You can override most settings, classes, etc. just like any other Symfony plugin. In case you don't know, this is done by creating the appropriate files in your local application structure.
+
+For example, if you wanted to override:
+  /plugins/hnPhotoAlbumPlugin/modules/photos/config/view.yml
+
+You would create a new file:
+  /apps/frontend/modules/photos/config/view.yml
+
+And put your desired settings there.

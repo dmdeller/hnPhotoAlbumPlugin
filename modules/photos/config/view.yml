@@ -1,6 +1,6 @@
 all:
   metas:
-    title: photos : [ horizon nigh ]
+    title: Photo Album
     
   stylesheets:
     - /hnPhotoAlbumPlugin/css/photos

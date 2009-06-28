@@ -43,7 +43,12 @@
   </div>
   
   <div id="photo">
-    <div style="width: <?php echo $image_width; ?>px; height: <?php echo $image_height; ?>px; margin-left: auto; margin-right: auto; background:url(<?php echo _compute_public_path('/hnPhotoAlbumPlugin/images/checkerboard.png', 'images', 'png'); ?>);"><?php echo image_tag($image_src, array('width' => $image_width, 'height' => $image_height)); ?></span>
+    <div style="width: <?php echo $image_width; ?>px; height: <?php echo $image_height; ?>px; margin-left: auto; margin-right: auto; background:url(<?php echo _compute_public_path('/hnPhotoAlbumPlugin/images/checkerboard.png', 'images', 'png'); ?>);">
+        <div id="photo_ajax_loader" style="width: <?php echo $image_width; ?>px; height: <?php echo $image_height; ?>px; position: absolute; background-color: black; opacity: 0; display: none;">
+          <?php echo image_tag('/hnPhotoAlbumPlugin/images/ajax-loader.gif', array('style' => 'margin-top: '.(($image_height-32)/2).'px;')); ?>
+        </div>
+      <?php echo image_tag($image_src, array('width' => $image_width, 'height' => $image_height)); ?>
+    </div>
   </div>
   
   <div class="previous">

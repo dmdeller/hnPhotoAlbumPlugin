@@ -1,3 +1,4 @@
+# cache each page for 5 minutes, to avoid annoying Google with repeated identical API requests
 all:
   #enabled: on
   lifetime: 300
