@@ -1,4 +1,4 @@
-<?php use_helper('Javascript'); ?>
+<?php use_helper('JavascriptBase'); ?>
 
 <div id="hnPhotoAlbumPlugin">
 

@@ -13,8 +13,13 @@ class photosActions extends sfActions
 
   public function preExecute()
   {
-    $this->username = sfConfig::get('app_hnPhotoAlbumPlugin_picasa_username', 'tester');
+    $this->username = sfConfig::get('app_hnPhotoAlbumPlugin_picasa_username', 'picasateam');
     $this->picasa = new Zend_Gdata_Photos();
+    
+    $response = $this->getResponse();
+    $response->addJavascript(sfConfig::get('app_hnPhotoAlbumPlugin_path_js_prototype', '/js').'/prototype');
+    $response->addJavascript(sfConfig::get('app_hnPhotoAlbumPlugin_path_js_scriptaculous', '/js').'/builder');
+    $response->addJavascript(sfConfig::get('app_hnPhotoAlbumPlugin_path_js_scriptaculous', '/js').'/effects');
   }
   
   public function executeIndex(sfWebRequest $request)
