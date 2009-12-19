@@ -16,22 +16,57 @@ along with this program (in the file LICENSE).  If not, see
 <http://www.gnu.org/licenses/>.
 
 
+Requirements
+------------
+
+- Symfony 1.3 or 1.4
+- Prototype 1.6.1
+- Scriptaculous 1.8.3
+- Zend GData 1.9.6
+
+Versions listed are the ones I tested with. It should also work with newer versions. It *may* work with older versions (maybe even Symfony 1.2), but if you try that, you're on your own.
+
+
+Installation
+------------
+
+1.  Unpack hnPhotoAlbumPlugin to your project's /plugins directory.
+
+
+2.  If you don't already have it, get Scriptaculous: http://script.aculo.us (We no longer use the deprecated sfProtoculousPlugin)
+
+    Prototype is included with Scriptaculous. Move the files out of the 'lib' and 'src' directories and put them somewhere in your /web/js directory.
+
+
+3.  If you don't already have it, get the Zend GData library: http://framework.zend.com/download/gdata
+
+    Move the 'Zend' folder out of the 'library' folder and put it somewhere in /lib/vendor.
+    
+    I haven't been able to get this library to work with Symfony's autoloading mechanism. If you find a way, please let me know.
+    Otherwise, add this to your /config/ProjectConfiguration.class.php:
+    
+      set_include_path(get_include_path().':'.sfConfig::get('sf_lib_dir').'/vendor');
+
+
+4.  Run 'symfony plugin:publish-assets' so your site can find the stylesheets, etc.
+
+
 Configuration
 -------------
 
-0.  Install the plugin and run 'symfony plugin:publish-assets' so your site can find the stylesheets, etc.
-    Install scriptaculous if you want AJAXy goodness (of course you do!). You can get it from http://script.aculo.us
-    (We no longer use the deprecated sfProtoculousPlugin)
+1.  Enable the plugin in your /config/ProjectConfiguration.class.php.
+
+    If you are using $this->enablePlugins(), add it to the array. If you are using $this->enableAllPluginsExcept(), you probably don't need to do anything.
 
 
-1.  Enable the 'photos' module in your app's settings.yml:
+2.  Enable the 'photos' module in your app's settings.yml:
 
 all:
   .settings:
     enabled_modules:        [photos]
 
 
-2.  Configure some settings in your app's app.yml:
+3.  Configure some settings in your app's app.yml:
 
 all:
   hnPhotoAlbumPlugin:
@@ -48,10 +83,10 @@ all:
     photo_display_size:     800           # maximum size (width) for photos. default is 800px. note, no 'u' or 'c' is needed/allowed here.
 
 
-3.  Optionally style the output. All of the plugin's HTML is wrapped in a div with the ID 'hnPhotoAlbumPlugin', so you can use that to limit CSS rules to this particular plugin.
+4.  Optionally style the output. All of the plugin's HTML is wrapped in a div with the ID 'hnPhotoAlbumPlugin', so you can use that to target CSS rules for this particular plugin.
 
 
-4.  <?php echo link_to('photos/index'); ?> somewhere on your site so visitors can find it! :)
+5.  <?php echo link_to('photos/index'); ?> somewhere on your site so visitors can find it! :)
 
 
 Overriding stuff
