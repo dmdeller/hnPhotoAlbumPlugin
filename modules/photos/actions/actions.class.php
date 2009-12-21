@@ -65,7 +65,25 @@ class photosActions extends sfActions
     $query = new Zend_Gdata_Photos_PhotoQuery();
     $query->setUser($this->username);
     $query->setAlbumName($request->getParameter('album_name'));
-    $query->setPhotoId($request->getParameter('photo_id'));
+    
+    if ($request->getParameter('photo_id'))
+    {
+      $query->setPhotoId($request->getParameter('photo_id'));
+    }
+    else
+    {
+      try
+      {
+        $this->albumEntry = $this->picasa->getAlbumEntry($query_album);
+        
+        return 'placeholder';
+      }
+      catch (Zend_Gdata_App_Exception $e)
+      {
+        $this->forward404();
+      }
+    }
+    
     $query->setImgMax(sfConfig::get('app_hnPhotoAlbumPlugin_photo_display_size', 800));
     
     try
@@ -79,7 +97,6 @@ class photosActions extends sfActions
       $this->image_src = $mediaGroup[0]->getUrl();
       $this->image_width = $mediaGroup[0]->getWidth();
       $this->image_height = $mediaGroup[0]->getHeight();
-/*       print_r($this->photoEntry);die(); */
       
       $found = false;
       $this->previous = null;

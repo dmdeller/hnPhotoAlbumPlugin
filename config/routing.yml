@@ -10,6 +10,10 @@ photos_download:
   url: /photos/download/:album_name/:photo_id
   param: { module: photos, action: download }
   
+photos_photo_placeholder:
+  url: /photos/:album_name/photo
+  param: { module: photos, action: photo }
+  
 photos_photo:
   url: /photos/:album_name/:photo_id
   param: { module: photos, action: photo }

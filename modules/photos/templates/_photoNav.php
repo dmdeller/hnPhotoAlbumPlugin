@@ -12,7 +12,7 @@
   <?php echo link_to_function(
     $text,
     "new Ajax.Updater(
-      'article',
+      'hnPhotoAlbumPlugin',
       '".url_for($url)."',
       {
         asynchronous:true,
@@ -32,7 +32,10 @@
           });
         }
       }
-    );"
+    ); return true;",
+    array(
+      'href' => '#'.$photo_id,
+    )
   ); ?>
   
 <?php end_if_javascript(); ?>

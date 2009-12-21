@@ -16,7 +16,7 @@
     
       <?php $previous_url = 'photos/photo?'.http_build_query(array('album_name' => (string)$albumEntry->getGphotoName(), 'photo_id' => (string)$previous->getGphotoId())); ?>
       
-      <?php include_partial('photoNav', array('text' => '&lt; Previous', 'url' => $previous_url)); ?>
+      <?php include_partial('photoNav', array('text' => '&lt; Previous', 'url' => $previous_url, 'photo_id' => (string)$previous->getGphotoId())); ?>
       
     <?php else: ?>
     
@@ -32,7 +32,7 @@
     
       <?php $next_url = 'photos/photo?'.http_build_query(array('album_name' => (string)$albumEntry->getGphotoName(), 'photo_id' => (string)$next->getGphotoId())); ?>
       
-      <?php include_partial('photoNav', array('text' => 'Next &gt;', 'url' => $next_url)); ?>
+      <?php include_partial('photoNav', array('text' => 'Next &gt;', 'url' => $next_url, 'photo_id' => (string)$next->getGphotoId())); ?>
       
     <?php else: ?>
     
@@ -55,7 +55,7 @@
   
     <?php if (!is_null($previous)): ?>
     
-      <?php include_partial('photoNav', array('text' => '&lt; Previous', 'url' => $previous_url)); ?>
+      <?php include_partial('photoNav', array('text' => '&lt; Previous', 'url' => $previous_url, 'photo_id' => (string)$previous->getGphotoId())); ?>
       
     <?php else: ?>
     
@@ -69,7 +69,7 @@
   
     <?php if (!is_null($next)): ?>
     
-      <?php include_partial('photoNav', array('text' => 'Next &gt;', 'url' => $next_url)); ?>
+      <?php include_partial('photoNav', array('text' => 'Next &gt;', 'url' => $next_url, 'photo_id' => (string)$next->getGphotoId())); ?>
       
     <?php else: ?>
     

@@ -50,3 +50,8 @@
 {
   text-align: right;
 }
+
+#hnPhotoAlbumPlugin p#placeholder_loader
+{
+  text-align: center;
+}
