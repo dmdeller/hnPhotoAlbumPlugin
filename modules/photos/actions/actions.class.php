@@ -76,7 +76,7 @@ class photosActions extends sfActions
       {
         $this->albumEntry = $this->picasa->getAlbumEntry($query_album);
         
-        return 'placeholder';
+        return 'Placeholder';
       }
       catch (Zend_Gdata_App_Exception $e)
       {
