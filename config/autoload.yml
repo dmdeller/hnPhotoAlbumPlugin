@@ -1,0 +1,5 @@
+autoload:
+  Zend_GData:
+    name:      Zend_GData
+    path:      %SF_LIB_DIR%/vendor/Zend
+    recursive: on
