@@ -1,13 +1,5 @@
 <?php
 
-/**
- * photos actions.
- *
- * @package    sf_sandbox
- * @subpackage photos
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 12479 2008-10-31 10:54:40Z fabien $
- */
 class photosActions extends sfActions
 {
 
@@ -58,18 +50,22 @@ class photosActions extends sfActions
   
   public function executePhoto(sfWebRequest $request)
   {
+    // Query Google for details of this photo album via the Zend GData API
     $query_album = new Zend_Gdata_Photos_AlbumQuery();
     $query_album->setUser($this->username);
     $query_album->setAlbumName($request->getParameter('album_name'));
     
+    // Also query for the individual photo
     $query = new Zend_Gdata_Photos_PhotoQuery();
     $query->setUser($this->username);
     $query->setAlbumName($request->getParameter('album_name'));
     
+    // If there was a photo ID specified as a GET parameter, we know which photo we need to look for.
     if ($request->getParameter('photo_id'))
     {
       $query->setPhotoId($request->getParameter('photo_id'));
     }
+    // Otherwise, display the 'placeholder' page which will asynchronously load the first photo.
     else
     {
       try
@@ -102,6 +98,8 @@ class photosActions extends sfActions
       $this->previous = null;
       $this->next = null;
       
+      // Loop through the album and find three photos: current, next and previous
+      // There might be a better way to do this...
       foreach ($this->picasa->getAlbumFeed($query_album) as $photoEntry)
       {
         if ((string)$photoEntry->getGphotoId() == (string)$this->photoEntry->getGphotoId())
@@ -118,6 +116,8 @@ class photosActions extends sfActions
           $this->previous = $photoEntry;
         }
       }
+      
+      return sfView::SUCCESS;
     }
     catch (Zend_Gdata_App_Exception $e)
     {
